@@ -1,0 +1,11 @@
+#!/bin/bash -x
+
+# restart Squid
+
+#sudo launchctl unload -w /Library/LaunchDaemons/org.macports.Squid.plist
+sudo launchctl unload -w /Library/LaunchDaemons/homebrew.mxcl.squid.plist
+sudo killall '(squid-1)'
+sudo killall squid
+sleep 5
+#sudo launchctl load -w /Library/LaunchDaemons/org.macports.Squid.plist
+sudo launchctl load -w /Library/LaunchDaemons/homebrew.mxcl.squid.plist

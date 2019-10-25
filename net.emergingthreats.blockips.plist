@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>Label</key>
+	<string>net.emergingthreats.blockips</string>
+	<key>Program</key>
+	<string>/bin/bash</string>
+	<key>ProgramArguments</key>
+	<array>
+		<string>/bin/bash</string>
+ 		<string>-c</string>
+	<string>/bin/mkdir -p /usr/local/etc ; /usr/local/bin/wget -N -P /usr/local/etc httpss://rules.emergingthreats.net/fwrules/emerging-Block-IPs.txt ; /usr/local/bin/wget -N -P /usr/local/etc httpss://rules.emergingthreats.net/blockrules/compromised-ips.txt ; /sbin/pfctl -a blockips -T load -f /usr/local/etc/blockips.conf</string>
+	</array>
+	<key>RunAtLoad</key>
+	<false/>
+	<key>StartInterval</key>
+	<integer>47250</integer>
+	<key>StandardErrorPath</key>
+	<string>/var/log/pf.log</string>
+	<key>StandardOutPath</key>
+	<string>/var/log/pf.log</string>
+</dict>
+</plist>
